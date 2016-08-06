@@ -1,0 +1,6 @@
+framework module Pods_DiscountWarehouse {
+  umbrella header "Pods-DiscountWarehouse-umbrella.h"
+
+  export *
+  module * { export * }
+}
