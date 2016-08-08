@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEA188351D58EDE5001020BE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA188341D58EDE5001020BE /* Array.swift */; };
+		AEA188371D58EEE4001020BE /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA188361D58EEE4001020BE /* UIButton.swift */; };
+		AEA188391D58EF11001020BE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA188381D58EF11001020BE /* UIColor.swift */; };
 		D95669BC1D4FC9700020807C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95669BB1D4FC9700020807C /* AppDelegate.swift */; };
 		D95669C11D4FC9700020807C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95669BF1D4FC9700020807C /* Main.storyboard */; };
 		D95669C31D4FC9700020807C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95669C21D4FC9700020807C /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		360B159E1C0A7BF102F478C5 /* Pods_DiscountWarehouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiscountWarehouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E68BCD6DA28D6C6B742F1C /* Pods-DiscountWarehouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscountWarehouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiscountWarehouse/Pods-DiscountWarehouse.debug.xcconfig"; sourceTree = "<group>"; };
 		A1000F066E142FAE00567615 /* Pods-DiscountWarehouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiscountWarehouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiscountWarehouse/Pods-DiscountWarehouse.release.xcconfig"; sourceTree = "<group>"; };
+		AEA188341D58EDE5001020BE /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		AEA188361D58EEE4001020BE /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		AEA188381D58EF11001020BE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D95669B81D4FC9700020807C /* DiscountWarehouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscountWarehouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95669BB1D4FC9700020807C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95669C01D4FC9700020807C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +157,9 @@
 			children = (
 				D97D5F941D53ED12006399E8 /* UITableViewCell.swift */,
 				D9F700FA1D54F3B600E4013F /* Int.swift */,
+				AEA188341D58EDE5001020BE /* Array.swift */,
+				AEA188361D58EEE4001020BE /* UIButton.swift */,
+				AEA188381D58EF11001020BE /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,9 +318,12 @@
 				D9789A9B1D4FF1A0008EBDDB /* Network.swift in Sources */,
 				D98F17421D4FCC54003C73AF /* Headers.swift in Sources */,
 				D9789A9E1D4FF5B4008EBDDB /* SearchResultsViewController.swift in Sources */,
+				AEA188371D58EEE4001020BE /* UIButton.swift in Sources */,
 				D9F700FB1D54F3B600E4013F /* Int.swift in Sources */,
 				D98F17491D4FCED7003C73AF /* SearchResult.swift in Sources */,
+				AEA188391D58EF11001020BE /* UIColor.swift in Sources */,
 				D97D5F911D53ECB2006399E8 /* ResultsTableViewCell.swift in Sources */,
+				AEA188351D58EDE5001020BE /* Array.swift in Sources */,
 				D9789A971D4FEAD0008EBDDB /* NDJSON.swift in Sources */,
 				D98F17461D4FCE56003C73AF /* NetworkProtocol.swift in Sources */,
 				D97D5F981D53EDDA006399E8 /* ReusableView.swift in Sources */,
