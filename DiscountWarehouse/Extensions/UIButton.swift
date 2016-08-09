@@ -20,6 +20,6 @@ extension UIView {
     func graySquareBorder() {
         layer.borderWidth = 1
         layer.cornerRadius = 4
-        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.borderColor = UIColor(color: .Gray).CGColor
     }
 }
