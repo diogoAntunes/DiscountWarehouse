@@ -8,7 +8,5 @@
 
 import UIKit
 
-extension UITableViewCell: ReusableView {
-    
-}
+extension UITableViewCell: ReusableView { }
 

@@ -6,6 +6,5 @@ target 'DiscountWarehouse' do
   # Pods for DiscountWarehouse
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
-  pod 'RealmSwift'
   
 end

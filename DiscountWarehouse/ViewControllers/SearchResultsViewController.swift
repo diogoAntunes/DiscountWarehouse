@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SearchResultsViewController: UIViewController {
+class SearchResultsViewController: UIViewController, ShowAlert {
 
 	lazy var searchController: UISearchController = {
 		$0.searchResultsUpdater = self
 		$0.dimsBackgroundDuringPresentation = false
-        $0.searchBar.barTintColor = UIColor(color: .Green)
+		$0.searchBar.barTintColor = UIColor(color: .Green)
 
 		return $0
 	}(UISearchController(searchResultsController: nil))
@@ -33,32 +33,31 @@ class SearchResultsViewController: UIViewController {
 		didSet { tableView.reloadData() }
 	}
 
+	private lazy var viewModel: SearchResultsViewModel = {
+		return SearchResultsViewModel()
+	}()
 }
 
 private typealias LifeCycle = SearchResultsViewController
-extension LifeCycle: Network {
+extension LifeCycle {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		Network.getSearchResults(false, limit: 20, skip: 0) { result in
-			switch result {
-			case .Success(let search): self.searchResults = search
-			case .Failure(let error): print(error)
-			}
-		}
-
+		// Sets this view controller as presenting view controller for the search interface
 		definesPresentationContext = true
-	}
 
-	func loadMore() {
-		Network.getSearchResults(false, limit: 20, skip: 20) { result in
-			switch result {
-			case .Success(let search): self.searchResults?.appendContentsOf(search)
-			case .Failure(let error): print(error)
-			}
+		// Get initial results
+		viewModel.getSearchResults(20, skip: 0) { results in
+			if let results = results { self.searchResults = results }
+			else { self.showError() }
 		}
 	}
+
+	private func showError() {
+		showAlertWithTitle("Error", message: "There was an error retrieving your results.")
+	}
+
 }
 
 extension SearchResultsViewController: UITableViewDataSource {
@@ -76,19 +75,34 @@ extension SearchResultsViewController: UITableViewDataSource {
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as ResultsTableViewCell
 
-		guard let filteredResults = filteredResults else { return cell }
+		guard let filteredResults = filteredResults, searchResults = searchResults else { return cell }
 		let row = indexPath.row
 		let result = filteredResults[row]
 
-		cell.laPlaceHolder?.text = result.face
+		// Results Stock
+		if result.stock == 0 { cell.noStockMode() }
+		else { cell.laStock?.text = String(result.stock) }
+
+		// Price
 		cell.laPrice?.text = result.price.toLocalCurrency
+
+		// ASCII Face
+		cell.laPlaceHolder?.text = result.face
+
+		// Tags
 		cell.laTags.text = result.tags.removeDuplicates().joinWithSeparator(", ")
 
-//        if row == filteredResults.count - 1 {
-//            loadMore()
-//        }
+		// Pagination
+		if row == searchResults.count - 1 { loadMoreResults() }
 
 		return cell
+	}
+
+	private func loadMoreResults() {
+		viewModel.getSearchResults(20, skip: 20) { results in
+			if let results = results { self.searchResults?.appendContentsOf(results) }
+			else { self.showError() }
+		}
 	}
 }
 

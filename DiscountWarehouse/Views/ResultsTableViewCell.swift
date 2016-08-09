@@ -22,7 +22,10 @@ class ResultsTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var laPlaceHolder: UILabel!
 	@IBOutlet weak var laPrice: UILabel!
+    @IBOutlet weak var laStock: UILabel!
+    @IBOutlet weak var laStockPlaceholder: UILabel!
 
+    
 	@IBOutlet weak var laTags: UILabel!
 	@IBOutlet weak var bBuy: UIButton! {
 		didSet { bBuy.redSquareStyle() }
@@ -34,5 +37,17 @@ class ResultsTableViewCell: UITableViewCell {
 			self.delegate?.didPressBuy()
 		})
 	}
+    
+    func noStockMode() {
+        laStock.text = String(0)
+        bBuy.enabled = false
+        bBuy.hidden = true
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bBuy.enabled = true
+        bBuy.hidden = false
+    }
 
 }

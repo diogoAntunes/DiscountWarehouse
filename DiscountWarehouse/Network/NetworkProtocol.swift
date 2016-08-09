@@ -17,6 +17,5 @@ enum BackendError {
 
 protocol NetworkProtocol {
 
-	/*** All the search results  ***/
     func getSearchResults(onlyInStock: Bool, limit: Int, skip: Int, completion: Result<[SearchResult]> -> Void)
 }
